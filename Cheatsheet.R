@@ -6,12 +6,12 @@
 #SYNTAX===============================================================================================================
 
 %>% 
-  #Indicates a pipe (is relatively equal to 'then' in other pro %>% gramming languages).
+#Indicates a pipe (is relatively equal to 'then' in other pro %>% gramming languages).
   
-  == 
-  #Is used to ask where a variable contains a value rather than stating a variable is equal to a value.
-  #Example:
-  dataframe %>% 
+== 
+#Is used to ask where a variable contains a value rather than stating a variable is equal to a value.
+#Example:
+dataframe %>% 
   filter(sex == "male")
 #Will filter where in the data frame someone's sex is male.
 
@@ -19,9 +19,9 @@
 #Using double backslashes when pathing to a file can help mitigate an error.
 
 %in%
-  #Used to find values which are within a variable
-  #Example:
-  filter(variable %in% c("value", "value"))
+#Used to find values which are within a variable
+#Example:
+filter(variable %in% c("value", "value"))
 
 
 #RSTUDIO KEYBOARD SHORTCUTS===========================================================================================
@@ -125,7 +125,7 @@ dataframe %>%
 dataframe %>% 
   arrange(variable)
 #Arranges the data frame by the selected variable, defaulting to increasing numeric, and alphabetical.
-arrange(-variable)
+  arrange(-variable)
 #Inverts the default numerical variable arrangement to decreasing instead of increasing.
 
 levels(dataframe$variable)
@@ -176,12 +176,11 @@ unique(dataframe$variable)
 table(dataframe$variable)
 #Creates a table showing the amount times each value occurs within a variable.
 
+
 #-----PLOTTING GRAPHS-----
 
 plot(dataframe)
 #Shows the values of a data frame as a scatter plot graph.
-
-
 
 
 #-----REMOVING MISSING DATA-----
@@ -195,9 +194,9 @@ dataframe[missing, ]
 
 dataframe %>% 
   drop_na(variable) %>%
-  #Removes missing values from a variable.
+#Removes missing values from a variable.
   
-  na.rm = TRUE
+na.rm = TRUE
 #Removes variables from a command where there is no value (listed na).
 #EXAMPLE:
 command(dataframe$variable, na.rm = TRUE)
@@ -207,19 +206,19 @@ command(dataframe$variable, na.rm = TRUE)
 
 dataframe %>% 
   select(variable, variable) %>% 
-  #Selects what variables will be shown in the output.
+#Selects what variables will be shown in the output.
   
-  dataframe %>% 
+dataframe %>% 
   select(X:Y) %>% 
-  #Selects what variables will be shown in the output by its numerical order in the data frame.
+#Selects what variables will be shown in the output by its numerical order in the data frame.
   
-  dataframe %>%
+dataframe %>%
   select(ends_with("text"))
-select(starts_with("text"))
-select(contains("text"))
+  select(starts_with("text"))
+  select(contains("text"))
 #Selects variables which contain the given text.
 #Example: 
-select(ends_with("color")) 
+  select(ends_with("color")) 
 #Could output the variables "hair_color", "eye_color", and "skin_color".
 
 dataframe %>% 
@@ -245,14 +244,15 @@ dataframe %>%
   mutate(newvariable = oldvariable)
 #Creates a new variable, or "overwrites" and existing variable.
 #Example: 
-mutate(meters = centimeters/100)
+  mutate(meters = centimeters/100)
 #Converts the variable name "centimeters" to "meters" while also processing the numeric conversion.
 
 dataframe %>%
   mutate(variable = as.class(variable))
 #Changes the class of a variable.
 
-mutate(variable = recode(variable, "value1" = "value2", "value3" = "value4"))
+dataframe %>% 
+  mutate(variable = recode(variable, "value1" = "value2", "value3" = "value4"))
 #Renames values within the given variable.
 
 
